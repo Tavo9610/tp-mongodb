@@ -1,6 +1,6 @@
 import express from 'express'
 import { connectDb } from './config/mongoDbConnection.js';
-import { ProductRouter } from './routes/productRouter.js';
+import { WearRouter } from './routes/wearRouter.js';
 import { AuthRouter } from './routes/authRouter.js';
 import { authMiddleware } from './middlewares/authMiddleware.js';
 import cors from "cors"
@@ -24,7 +24,7 @@ server.get("/", (req, res) => {
     message: "API REST con Express y MongoDB"
   })
 })
-server.use("/products", authMiddleware, ProductRouter)
+server.use("/wears", authMiddleware, WearRouter)
 server.use("/auth", AuthRouter)
 
 server.listen(PORT, () => {

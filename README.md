@@ -1,6 +1,6 @@
 # TP Conexion MONGODB-EXPRESS
 
-API REST construida con **Express** y **MongoDB** que implementa autenticación con **JWT** y sigue el patrón de arquitectura **MVC**. Permite gestionar productos asociados a un usuario autenticado.
+API REST construida con **Express** y **MongoDB** que implementa autenticación con **JWT** y sigue el patrón de arquitectura **MVC**. Permite gestionar wearos asociados a un usuario autenticado.
 
 ---
 
@@ -25,16 +25,16 @@ API REST construida con **Express** y **MongoDB** que implementa autenticación 
 │   └── mongoDbConnection.js
 ├── controllers/
 │   ├── authControllers.js
-│   └── productControllers.js
+│   └── wearControllers.js
 ├── middlewares/
 │   ├── authMiddleware.js
 │   └── limiterMiddleware.js
 ├── models/
 │   ├── UserModel.js
-│   └── ProductModel.js
+│   └── WearModel.js
 ├── routes/
 │   ├── authRouter.js
-│   └── productRouter.js
+│   └── wearRouter.js
 ├── .env
 ├── .env.example
 ├── app.js
@@ -155,9 +155,9 @@ Inicia sesión y devuelve un token JWT.
 
 ---
 
-### Productos (privados)
+### Wearos (privados)
 
-Todos los endpoints de productos requieren el header:
+Todos los endpoints de wearos requieren el header:
 
 ```
 Authorization: Bearer <token>
@@ -165,9 +165,9 @@ Authorization: Bearer <token>
 
 ---
 
-#### `GET /api/products`
+#### `GET /api/wears`
 
-Lista todos los productos del usuario autenticado.
+Lista todos los wearos del usuario autenticado.
 
 **Respuesta exitosa `200`:**
 ```json
@@ -176,24 +176,24 @@ Lista todos los productos del usuario autenticado.
   "data": [
     {
       "_id": "664f1a2b3c4d5e6f7a8b9c0e",
-      "name": "Laptop",
+      "name": "Pantalones",
       "price": 1200,
-      "category": "Electrónica",
+      "size": "L",
       "stock": 5,
       "available": true,
       "createdAt": "2025-01-01T00:00:00.000Z",
       "updatedAt": "2025-01-01T00:00:00.000Z"
     }
   ],
-  "message": "Products fetched successfully"
+  "message": "Wears fetched successfully"
 }
 ```
 
 ---
 
-#### `GET /api/products/:id`
+#### `GET /api/wears/:id`
 
-Obtiene un producto por ID, solo si pertenece al usuario autenticado.
+Obtiene un wearo por ID, solo si pertenece al usuario autenticado.
 
 **Respuesta exitosa `200`:**
 ```json
@@ -201,28 +201,28 @@ Obtiene un producto por ID, solo si pertenece al usuario autenticado.
   "success": true,
   "data": {
     "_id": "664f1a2b3c4d5e6f7a8b9c0e",
-    "name": "Laptop",
+    "name": "Pantalones",
     "price": 1200,
-    "category": "Electrónica",
+    "size": "L",
     "stock": 5,
     "available": true
   },
-  "message": "Product fetched successfully"
+  "message": "Wear fetched successfully"
 }
 ```
 
 ---
 
-#### `POST /api/products`
+#### `POST /api/wears`
 
-Crea un nuevo producto asociado al usuario autenticado.
+Crea un nuevo wearo asociado al usuario autenticado.
 
 **Body:**
 ```json
 {
-  "name": "Laptop",
+  "name": "Pantalones",
   "price": 1200,
-  "category": "Electrónica",
+  "size": "Large",
   "stock": 5
 }
 ```
@@ -233,21 +233,21 @@ Crea un nuevo producto asociado al usuario autenticado.
   "success": true,
   "data": {
     "_id": "664f1a2b3c4d5e6f7a8b9c0e",
-    "name": "Laptop",
+    "name": "Pantalones",
     "price": 1200,
-    "category": "Electrónica",
+    "size": "Large",
     "stock": 5,
     "available": true
   },
-  "message": "Product created successfully"
+  "message": "Wear created successfully"
 }
 ```
 
 ---
 
-#### `PATCH /api/products/:id`
+#### `PATCH /api/wears/:id`
 
-Actualiza parcialmente un producto, solo si pertenece al usuario autenticado.
+Actualiza parcialmente un wearo, solo si pertenece al usuario autenticado.
 
 **Body (todos los campos son opcionales):**
 ```json
@@ -263,21 +263,21 @@ Actualiza parcialmente un producto, solo si pertenece al usuario autenticado.
   "success": true,
   "data": {
     "_id": "664f1a2b3c4d5e6f7a8b9c0e",
-    "name": "Laptop",
+    "name": "Pantalones",
     "price": 999,
-    "category": "Electrónica",
+    "size": "Large",
     "stock": 0,
     "available": false
   },
-  "message": "Product updated successfully"
+  "message": "Wear updated successfully"
 }
 ```
 
 ---
 
-#### `DELETE /api/products/:id`
+#### `DELETE /api/wears/:id`
 
-Elimina un producto, solo si pertenece al usuario autenticado.
+Elimina un wearo, solo si pertenece al usuario autenticado.
 
 **Respuesta exitosa `200`:**
 ```json
@@ -285,13 +285,13 @@ Elimina un producto, solo si pertenece al usuario autenticado.
   "success": true,
   "data": {
     "_id": "664f1a2b3c4d5e6f7a8b9c0e",
-    "name": "Laptop",
+    "name": "Pantalones",
     "price": 1200,
-    "category": "Electrónica",
+    "size": "Large",
     "stock": 5,
     "available": true
   },
-  "message": "Product deleted successfully"
+  "message": "Wear deleted successfully"
 }
 ```
 

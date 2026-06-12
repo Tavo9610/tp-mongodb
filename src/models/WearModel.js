@@ -1,9 +1,9 @@
 import { Schema, model } from "mongoose"
 
-const productSchema = new Schema({
+const wearSchema = new Schema({
   name: { type: String, required: true },
   price: { type: Number, default: 0 },
-  category: { type: String, default: "Sin categoria" },
+  size: { type: String, default: "Sin Talles especificados" },
   stock: { type: Number, default: 0 },
   available: { type: Boolean, default: false },
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true }
@@ -12,8 +12,8 @@ const productSchema = new Schema({
   timestamps: true
 })
 
-const Product = model("Product", productSchema)
+const Wear = model("Wears", wearSchema)
 
-export { Product }
+export { Wear }
 
 
