@@ -155,7 +155,7 @@ Inicia sesión y devuelve un token JWT.
 
 ---
 
-### Wearos (privados)
+### Prendas (privadas)
 
 Todos los endpoints de Prendas requieren el header:
 
