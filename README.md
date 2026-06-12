@@ -1,6 +1,6 @@
 # TP Conexion MONGODB-EXPRESS
 
-API REST construida con **Express** y **MongoDB** que implementa autenticación con **JWT** y sigue el patrón de arquitectura **MVC**. Permite gestionar wearos asociados a un usuario autenticado.
+API REST construida con **Express** y **MongoDB** que implementa autenticación con **JWT** y sigue el patrón de arquitectura **MVC**. Permite gestionar prendas/textiles asociados a un usuario autenticado.
 
 ---
 
@@ -157,7 +157,7 @@ Inicia sesión y devuelve un token JWT.
 
 ### Wearos (privados)
 
-Todos los endpoints de wearos requieren el header:
+Todos los endpoints de Prendas requieren el header:
 
 ```
 Authorization: Bearer <token>
@@ -167,7 +167,7 @@ Authorization: Bearer <token>
 
 #### `GET /api/wears`
 
-Lista todos los wearos del usuario autenticado.
+Lista todos las Prendas del usuario autenticado.
 
 **Respuesta exitosa `200`:**
 ```json
@@ -193,7 +193,7 @@ Lista todos los wearos del usuario autenticado.
 
 #### `GET /api/wears/:id`
 
-Obtiene un wearo por ID, solo si pertenece al usuario autenticado.
+Obtiene una Prenda por ID, solo si pertenece al usuario autenticado.
 
 **Respuesta exitosa `200`:**
 ```json
@@ -215,7 +215,7 @@ Obtiene un wearo por ID, solo si pertenece al usuario autenticado.
 
 #### `POST /api/wears`
 
-Crea un nuevo wearo asociado al usuario autenticado.
+Crea una nueva prenda asociada al usuario autenticado.
 
 **Body:**
 ```json
@@ -247,7 +247,7 @@ Crea un nuevo wearo asociado al usuario autenticado.
 
 #### `PATCH /api/wears/:id`
 
-Actualiza parcialmente un wearo, solo si pertenece al usuario autenticado.
+Actualiza parcialmente una prenda, solo si pertenece al usuario autenticado.
 
 **Body (todos los campos son opcionales):**
 ```json
@@ -277,7 +277,7 @@ Actualiza parcialmente un wearo, solo si pertenece al usuario autenticado.
 
 #### `DELETE /api/wears/:id`
 
-Elimina un wearo, solo si pertenece al usuario autenticado.
+Elimina una prenda, solo si pertenece al usuario autenticado.
 
 **Respuesta exitosa `200`:**
 ```json
